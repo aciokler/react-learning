@@ -1,0 +1,77 @@
+{
+  "realm": "demo",
+  "enabled": true,
+  "clients": [
+    {
+      "clientId": "spring-boot-api",
+      "enabled": true,
+      "publicClient": true,
+      "protocol": "openid-connect",
+      "directAccessGrantsEnabled": false,
+      "standardFlowEnabled": true,
+      "attributes": {
+        "pkce.code.challenge.method": "S256"
+      },
+      "redirectUris": [
+        "http://localhost:5173/*",
+        "http://localhost:9090/*"
+      ],
+      "webOrigins": [
+        "http://localhost:5173",
+        "http://localhost:9090"
+      ]
+    },
+    {
+      "clientId": "service-account-client",
+      "enabled": true,
+      "publicClient": false,
+      "secret": "service-account-client-secret",
+      "protocol": "openid-connect",
+      "serviceAccountsEnabled": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false
+    }
+  ],
+  "users": [
+    {
+      "username": "alice",
+      "enabled": true,
+      "email": "alice@example.com",
+      "firstName": "Alice",
+      "lastName": "Example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "USER"
+      ]
+    }, {
+      "username": "bob",
+      "enabled": true,
+      "email": "bob@example.com",
+      "firstName": "Bob",
+      "lastName": "Example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "USER"
+      ]
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "USER"
+      }
+    ]
+  }
+}
